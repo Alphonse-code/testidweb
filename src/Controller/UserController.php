@@ -43,7 +43,7 @@ class UserController extends AbstractController
         $users = $this->userService->findUser();
         try{
             $userCreate = $this->userService->createUser($request);
-            return $this->redirectToRoute('index', ['users' => $users]);
+            return $this->redirectToRoute('index');
             
         }catch(Exception $e){
             $this->addFlash('error', $e->getMessage());
