@@ -5,22 +5,32 @@ namespace App\Entity;
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: UserRepository::class)]
+/**
+ * @ORM\Entity(repositoryClass=UserRepository::class)
+ */
 class User
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $id = null;
+    /**
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
+     */
+    private $id;
 
-    #[ORM\Column(length: 50)]
-    private ?string $lastname = null;
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $lastname;
 
-    #[ORM\Column(length: 75)]
-    private ?string $firstname = null;
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $firstname;
 
-    #[ORM\Column(length: 1)]
-    private ?string $status = null;
+    /**
+     * @ORM\Column(type="string", length=1)
+     */
+    private $status;
 
     public function __construct(String $lastname, String $firstname)
     {
@@ -58,7 +68,7 @@ class User
         return $this;
     }
 
-    public function getStatus(): ?string
+    public function getStatus(): string
     {
         return $this->status;
     }

@@ -1,3 +1,15 @@
 index:
     path: /
     controller: App\Controller\UserController::index
+
+list:
+    path: /user/list
+    controller: App\Controller\UserController::list
+
+new_user:
+    path: /user/new
+    controller: App\Controller\UserController::createUser
+
+update_user:
+    path: '/user/{id}'
+    controller: App\Controller\UserController::changeStatus
